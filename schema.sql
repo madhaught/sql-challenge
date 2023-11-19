@@ -1,7 +1,7 @@
 ﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
-
+-- Create departments table
 CREATE TABLE "departments" (
     "dept_no" char(4)   NOT NULL,
     "dept_name" varchar(30)   NOT NULL,
@@ -10,6 +10,7 @@ CREATE TABLE "departments" (
      )
 );
 
+-- Create titles table
 CREATE TABLE "titles" (
     "title_id" char(5)   NOT NULL,
     "title" varchar(30)   NOT NULL,
@@ -18,6 +19,8 @@ CREATE TABLE "titles" (
      )
 );
 
+
+-- Create employees table
 CREATE TABLE "employees" (
     "emp_no" int   NOT NULL,
     "emp_title_id" char(5)   NOT NULL,
@@ -31,6 +34,8 @@ CREATE TABLE "employees" (
      )
 );
 
+
+-- Create dept_emp table
 CREATE TABLE "dept_emp" (
     "emp_no" int   NOT NULL,
     "dept_no" char(4)   NOT NULL,
@@ -39,6 +44,7 @@ CREATE TABLE "dept_emp" (
      )
 );
 
+-- Create dept_manager table
 CREATE TABLE "dept_manager" (
     "dept_no" char(4)   NOT NULL,
     "emp_no" int   NOT NULL,
@@ -47,6 +53,7 @@ CREATE TABLE "dept_manager" (
      )
 );
 
+-- Create salaries table
 CREATE TABLE "salaries" (
     "emp_no" int   NOT NULL,
     "salary" int   NOT NULL,
@@ -55,6 +62,7 @@ CREATE TABLE "salaries" (
      )
 );
 
+-- Add foreign keys and constraints for tables
 ALTER TABLE "employees" ADD CONSTRAINT "fk_employees_emp_title_id" FOREIGN KEY("emp_title_id")
 REFERENCES "titles" ("title_id");
 
